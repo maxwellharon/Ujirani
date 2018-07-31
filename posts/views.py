@@ -33,3 +33,16 @@ class UserBusinesses(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['business_user'] = self.business_user
         return context
+
+class DeleteBusiness(LoginRequiredMixin, SelectRelatedMixin, generic.DeleteView):
+    model = models.Business
+    select_related = ('user', 'hoodwatch')
+    success_url = reverse_lazy('posts:all')
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(user_id=self.request.user.id)
+
+    def delete(self, *args, **kwargs):
+        messages.success(self.request, 'Business Deleted')
+        return super().delete(*args, **kwargs)
