@@ -29,3 +29,13 @@ class Hoodwatch(models.Model):
     class Meta:
         ordering = ['name']
 
+
+class HoodwatchMember(models.Model):
+    hoodwatch = models.ForeignKey(Hoodwatch, related_name='memberships')
+    user = models.ForeignKey(User, related_name='user_hoodwatchs')
+
+    def __str__(self):
+        return self.user.username
+
+    class Meta:
+        unique_together = ('hoodwatch', 'user')
