@@ -1,0 +1,26 @@
+{% extends "hoodwatch/hoodwatch_base.html" %}
+{% block prehoodwatch %}
+<div class="card mt-3" style="width: 28rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{hoodwatch.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Occupant Count: {{hoodwatch.occupants.count}}</h6>
+    {% if user in hoodwatch.occupants.all %}
+    <a href="{% url 'hoodwatch:leave' slug=hoodwatch.slug %}" class="waves-effect waves-light btn">Leave Hoodwatch</a>
+    {% else %}
+    <a href="{% url 'hoodwatch:join' slug=hoodwatch.slug %}" class="waves-effect waves-light btn">join Hoodwatch</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+{% block hoodwatch_content %}
+<div class="mt-3 ml-3">
+  {% if hoodwatch.businesses.count == 0 %}
+  <h4>No Businesses in this hoodwatch yet!</h4>
+  {% else %}
+    {% for business in hoodwatch.businesses.all %}
+     {% include "posts/_post.html" %}
+    {% endfor %}
+  {% endif%}
+</div>
+
+{% endblock %}
