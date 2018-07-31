@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!-- MATERIALIZED CDN -->
+  <!-- I like to use this because it modifies the bootstrap theme-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <title>Hoodwatch</title>
+   <link rel="shortcut icon" type="image/png" href="{% static 'images/HOMEico.png' %}"/>
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark" style="background-color #181630">
+     <a class="navbar-brand" href="{% url 'home' %}">
+       <img src="{% static 'images/HOME3.png' %}" width="250" height="100" alt=" HOODWATCH ">
+     </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+   {% if user.is_authenticated %}
+    <div class="navbar-nav"  >
+      <a style="color:white;" class="waves-effect waves-light btn" href="{% url 'hoodwatch:all' %} "  >Hoodwatchs</a>
+      <a style="color:white;"class="waves-effect waves-light btn" href="{% url 'hoodwatch:create' %}"  >Enter  Hoodwatch</a>
+      <a style="color:white;"class="waves-effect waves-light btn"  href="{% url 'posts:create' %}"  >Enter a Business</a>
+      <a style="color:white;"class="waves-effect waves-light btn" href="{% url 'accounts:logout' %}"  >Log Out</a> {% else %}
+      <a style="color:white;"class="waves-effect waves-light btn"  href="{% url 'hoodwatch:all' %}" >Hoodwatchs</a>
+
+
+         {% endif %}
+    </div>
+  </div>
+</nav>
+
+
+  {% block content %} {% endblock %}
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
