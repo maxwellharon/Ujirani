@@ -17,6 +17,7 @@ class BusinessList(SelectRelatedMixin, generic.ListView):
     model = models.Business
     select_related = ('user', 'hoodwatch')
 
+
 class UserBusinesses(generic.ListView):
     model = models.Business
     template_name = 'posts/user_post_list.html'
@@ -33,6 +34,15 @@ class UserBusinesses(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['business_user'] = self.business_user
         return context
+
+
+class BusinessDetail(SelectRelatedMixin, generic.DetailView):
+    model = models.Business
+    select_related = ('user', 'hoodwatch')
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(user___username__iexact=self.kwargs.get('username'))
 
 class DeleteBusiness(LoginRequiredMixin, SelectRelatedMixin, generic.DeleteView):
     model = models.Business
