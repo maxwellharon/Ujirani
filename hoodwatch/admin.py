@@ -3,6 +3,7 @@ from . import models
 
 # Register your models here.
 
+
 class HoodwatchMember(admin.TabularInline):
     model = models.HoodwatchMember
 
