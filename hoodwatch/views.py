@@ -34,9 +34,9 @@ class JoinHoodwatch(LoginRequiredMixin, generic.RedirectView):
         try:
             HoodwatchMember.objects.create(user=self.request.user, hoodwatch=hoodwatch)
         except IntegrityError:
-            messages.warning(self.request, ' already a member!')
+            messages.warning(self.request, ' You are already a member!')
         else:
-            messages.success(self.request, 'welcome to the community!')
+            messages.success(self.request, 'Welcome to the Ujirani Community :-)')
 
         return super().get(request, *args, **kwargs)
 
@@ -52,9 +52,9 @@ class LeaveHoodwatch(LoginRequiredMixin, generic.RedirectView):
         try:
             membership = HoodwatchMember.objects.filter(user=self.request.user, hoodwatch__slug=self.kwargs.get('slug')).get()
         except HoodwatchMember.DoesNotExist:
-            messages.warning(self.request, ' bummer looks like your are not a resident here!')
+            messages.warning(self.request, ' You are already a resident here :-)')
         else:
             membership.delete()
-            messages.success(self.request, 'bummer looks like you are not a member!')
+            messages.success(self.request, 'You are part of Ujirani :-)')
 
         return super().get(request, *args, **kwargs)
