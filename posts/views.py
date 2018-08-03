@@ -66,5 +66,5 @@ class DeleteBusiness(LoginRequiredMixin, SelectRelatedMixin, generic.DeleteView)
         return queryset.filter(user_id=self.request.user.id)
 
     def delete(self, *args, **kwargs):
-        messages.success(self.request, 'Business Deleted')
+        messages.success(self.request, 'Business Deleted :-)')
         return super().delete(*args, **kwargs)
