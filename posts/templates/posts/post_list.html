@@ -4,14 +4,14 @@
 <div class="col-md-6">
   <div class="card">
     <div class="content">
-      <h5>Your Hoodwatchs</h5> {% for member_hoodwatch in ger_user_hoodwatchs %}
+      <h5>Your Neighbourhood</h5> {% for member_hoodwatch in ger_user_hoodwatchs %}
       <a href="{% url 'hoodwatch:single' slug=member_hoodwatch.hoodwatch.slug %}"></a> {% endfor %}
     </div>
   </div>
   {% endif %}
   <div class="card">
     <div class="content">
-      <h5>Hoodwatchs</h5> {% for other_hoodwatch in get_other_hoodwatchs %}
+      <h5>Neighbourhood</h5> {% for other_hoodwatch in get_other_hoodwatchs %}
       <a href="{% url 'hoodwatch:single' slug=other_hoodwatch.slug %}"></a> {% endfor %}
     </div>
   </div>
