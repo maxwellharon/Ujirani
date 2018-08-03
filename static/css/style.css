@@ -17,3 +17,8 @@ p{
   font-weight: bold;
   font-family: sans-serif;
 }
+body {
+    background: #eee;
+    background-image: url("static/images/ujirani.jpeg");
+
+  }
