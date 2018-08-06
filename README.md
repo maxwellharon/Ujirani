@@ -1,6 +1,7 @@
 # Ujirani
 ## Maxwell Haron
 #### Ujirani is a web based application built using Django framework.Ujirani helps link neighbours together as neighbours are able to find out what is going on in their hood.The users of Ujirani are able to join a neughbourhood or create one.The users of Ujirani can also add their businesses to the web based app so that hood members can know about them.There is a list of emergency contacts that are available to the users in case of emergencies.
+## The live link to Ujirani is https://ujirani1.herokuapp.com/ :-)
  3rd August 2018 09:25:15
 ### By **Maxwell Haron**
 ## Installation Requirements
