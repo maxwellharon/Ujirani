@@ -5,9 +5,9 @@
     <h5 class="card-title">{{hoodwatch.name}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">Occupant Count: {{hoodwatch.occupants.count}}</h6>
     {% if user in hoodwatch.occupants.all %}
-    <a href="{% url 'hoodwatch:leave' slug=hoodwatch.slug %}" class="waves-effect waves-light btn">Leave a Neighbourhood</a>
+    <a href="{% url 'hoodwatch:leave' slug=hoodwatch.slug %}" class="waves-effect waves-light btn">Leave a Neighbourhood :-)</a>
     {% else %}
-    <a href="{% url 'hoodwatch:join' slug=hoodwatch.slug %}" class="waves-effect waves-light btn">join a Neighbourhood</a>
+    <a href="{% url 'hoodwatch:join' slug=hoodwatch.slug %}" class="waves-effect waves-light btn">join a Neighbourhood :-(</a>
     {% endif %}
   </div>
 </div>
