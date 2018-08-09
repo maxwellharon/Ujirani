@@ -39,6 +39,7 @@ class JoinHoodwatch(LoginRequiredMixin, generic.RedirectView):
             messages.success(self.request, 'Welcome to the Ujirani Community :-)')
 
         return super().get(request, *args, **kwargs)
+        # https://rhettinger.wordpress.com/2011/05/26/super-considered-super/
 
 '''
     This view function will eneble users to exit a hoodwatch
